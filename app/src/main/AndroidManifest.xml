@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.sv.rishabhsinha.svdues" >
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name=".LoginActivity"
+            android:label="SV Deuce"
+            >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".MemberDetails"
+            android:label=""
+            >
+        </activity>
+        <activity
+            android:name=".New_Membership"
+            android:label=""
+            android:parentActivityName=".HomePage" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.sv.rishabhsinha.svdues.HomePage" />
+        </activity>
+        <activity
+            android:name=".Add_Member"
+            android:label=""
+            android:parentActivityName=".HomePage" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.sv.rishabhsinha.svdues.HomePage" />
+        </activity>
+        <activity
+            android:name=".User_info"
+            android:label=""
+            android:parentActivityName=".HomePage" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.sv.rishabhsinha.svdues.HomePage" />
+        </activity>
+        <activity
+            android:name=".Edit_Userinfo"
+            android:label=""
+            android:parentActivityName=".User_info" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.sv.rishabhsinha.svdues.HomePage" />
+        </activity>
+        <activity
+            android:name=".All_Members"
+            android:label=""
+            android:parentActivityName=".HomePage" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.sv.rishabhsinha.svdues.HomePage" />
+        </activity>
+        <activity
+            android:name=".Renew_Membership"
+            android:label=""
+            android:parentActivityName=".HomePage" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.sv.rishabhsinha.svdues.HomePage" />
+        </activity>
+        <activity
+            android:name=".HomePage"
+            android:label=""
+
+            >
+
+        </activity>
+        <activity
+            android:name=".User_Change_Password"
+
+            android:label=""
+            android:parentActivityName=".User_info" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.sv.rishabhsinha.svdues.User_info" />
+        </activity>
+        <activity
+            android:name=".Edit_Personal_Details"
+            android:label=""
+            android:parentActivityName=".MemberDetails" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.sv.rishabhsinha.svdues.MemberDetails" />
+        </activity>
+        <activity
+            android:name=".Search"
+            android:label=""
+            >
+        </activity>
+    </application>
+
+</manifest>

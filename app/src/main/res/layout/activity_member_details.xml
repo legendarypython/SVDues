@@ -1,0 +1,246 @@
+<android.support.v4.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/navdrawer">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <include
+                android:id="@+id/tool_bar"
+                layout="@layout/tool_bar"
+                ></include>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingTop="10dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"
+                        android:id="@+id/imageView"
+                        android:background="@drawable/ic_launcher"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Legend"
+                        android:textSize="20dp"
+                        android:layout_marginTop="40dp"
+                        android:layout_marginLeft="30dp"/>
+                </LinearLayout>
+
+                <TabHost
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:id="@+id/TabHost">
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:orientation="vertical">
+
+                        <TabWidget
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@android:id/tabs"></TabWidget>
+                        <FrameLayout
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:id="@android:id/tabcontent">
+                            <LinearLayout
+                                android:layout_width="fill_parent"
+                                android:layout_height="fill_parent"
+                                android:id="@+id/tabPersonal"
+                                android:orientation="vertical"
+                                android:weightSum="1">
+                                <LinearLayout
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="fill_parent"
+                                    android:orientation="vertical"
+                                    android:layout_weight="1">
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Mobile Number"
+                                        android:id="@+id/tvMob"/>
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Email ID"
+                                        android:id="@+id/tvEmail"/>
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Date Of Birth"
+                                        android:id="@+id/tvDob"/>
+                                </LinearLayout>
+                                <Button
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="bottom"
+                                    android:textAllCaps="false"
+                                    android:layout_weight="1"
+                                    android:text="Edit Details"
+                                    android:id="@+id/bEditDetails"
+                                    />
+                            </LinearLayout>
+                            <LinearLayout
+                                android:layout_width="fill_parent"
+                                android:layout_height="fill_parent"
+                                android:orientation="vertical"
+                                android:id="@+id/tbmembership"
+                                android:background="#d0d0d0">
+
+
+
+                                <TabHost
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="fill_parent"
+                                    android:id="@+id/tabHost">
+
+                                    <RelativeLayout
+                                        android:layout_width="fill_parent"
+                                        android:layout_height="fill_parent"
+                                        >
+
+                                        <TabWidget
+                                            android:layout_width="fill_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_alignParentBottom="true"
+                                            android:id="@android:id/tabs"></TabWidget>
+                                        <FrameLayout
+                                            android:layout_width="fill_parent"
+                                            android:layout_height="fill_parent"
+                                            android:id="@android:id/tabcontent">
+                                            <LinearLayout
+                                                android:layout_width="fill_parent"
+                                                android:layout_height="fill_parent"
+                                                android:id="@+id/tabActive"
+                                                android:orientation="vertical"
+                                                android:weightSum="1">
+
+
+
+
+                                                <ListView
+                                                    android:layout_width="fill_parent"
+                                                    android:layout_height="wrap_content"
+                                                    android:layout_marginTop="12sp"
+                                                    android:layout_marginBottom="50dp"
+                                                    android:layout_marginLeft="5sp"
+                                                    android:layout_marginRight="5sp"
+                                                    android:id="@+id/lvActive"
+                                                    android:divider="@android:color/transparent"
+                                                    android:dividerHeight="19.0sp"/>
+                                            </LinearLayout>
+                                            <LinearLayout
+                                                android:layout_width="fill_parent"
+                                                android:layout_height="fill_parent"
+                                                android:id="@+id/tabArchived"
+                                                android:orientation="vertical">
+
+                                                <ListView
+                                                    android:layout_width="fill_parent"
+                                                    android:layout_height="wrap_content"
+                                                    android:layout_marginTop="12sp"
+                                                    android:layout_marginBottom="50dp"
+                                                    android:layout_marginLeft="5sp"
+                                                    android:layout_marginRight="5sp"
+                                                    android:id="@+id/lvArchived"
+                                                    android:divider="@android:color/transparent"
+                                                    android:dividerHeight="19.0sp"/>
+                                            </LinearLayout>
+                                        </FrameLayout>
+                                    </RelativeLayout>
+                                </TabHost>
+
+                            </LinearLayout>
+                            <LinearLayout
+                                android:layout_width="fill_parent"
+                                android:layout_height="fill_parent"
+                                android:orientation="vertical"
+                                android:id="@+id/tAttendance">
+                                <LinearLayout
+                                    android:id="@+id/buttonlayout"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="left|top"
+                                    android:height="60sp"
+                                    android:orientation="horizontal"
+                                    android:weightSum="1">
+
+                                    <ImageView
+                                        android:id="@+id/prevMonth"
+                                        android:layout_width="20sp"
+                                        android:layout_height="25dp"
+                                        android:layout_gravity="center"
+                                        android:layout_marginLeft="10sp"
+                                        android:background="@drawable/cal_left_arrow_off"  >
+                                    </ImageView>
+                                    <TextView
+                                        android:id="@+id/currentMonth"
+                                        android:layout_width="266dp"
+                                        android:layout_height="34dp"
+                                        android:gravity="center"
+                                        android:textAppearance="?android:attr/textAppearanceMedium"
+                                        android:textColor="#FFFFFF" >
+                                    </TextView>
+                                    <ImageView
+                                        android:id="@+id/nextMonth"
+                                        android:layout_width="20sp"
+                                        android:layout_height="fill_parent"
+                                        android:layout_gravity="center"
+                                        android:layout_marginRight="10sp"
+                                        android:src="@drawable/calendar_right_arrow_selector">
+                                    </ImageView>
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center" >
+                                    <ImageView
+                                        android:id="@+id/calendarheader"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="35dp"
+                                        android:layout_gravity="center"
+                                        android:src="@drawable/calendar_days" >
+                                    </ImageView>
+                                </LinearLayout>
+                                <GridView
+                                    android:id="@+id/calendar"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:numColumns="7" >
+                                </GridView>
+                            </LinearLayout>
+                        </FrameLayout>
+                    </LinearLayout>
+                </TabHost>
+            </LinearLayout>
+        </LinearLayout>
+    </FrameLayout>
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#d0d0d0"
+        android:layout_gravity = "left"
+        android:id="@+id/listView1" />
+
+
+</android.support.v4.widget.DrawerLayout>

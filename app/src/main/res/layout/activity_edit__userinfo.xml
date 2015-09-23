@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:float="http://schemas.android.com/apk/res-auto"
+
+    android:layout_width="match_parent"
+
+    android:layout_height="match_parent"
+    android:weightSum="200"
+    android:orientation="vertical" >
+
+    <include
+        android:id="@+id/tool_bar"
+        layout="@layout/tool_bar"
+        ></include>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+        <LinearLayout
+            android:layout_weight="200"
+            android:paddingLeft="20dp"
+
+            android:paddingRight="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+
+
+                <com.wrapp.floatlabelededittext.FloatLabeledEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    float:fletPadding="10dp">
+                    <EditText
+                        android:hint="First Name"
+                        android:id="@+id/etFirst_name"
+                        android:drawablePadding="18dp"
+                        android:background="@drawable/box"
+                        android:drawableLeft="@drawable/users_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ems="10" >
+                    </EditText>
+
+
+                </com.wrapp.floatlabelededittext.FloatLabeledEditText>
+            </LinearLayout>
+
+
+
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <com.wrapp.floatlabelededittext.FloatLabeledEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    float:fletPadding="10dp">
+                    <EditText
+                        android:hint="Last Name"
+
+                        android:drawablePadding="18dp"
+
+                        android:background="@drawable/box"
+                        android:drawableLeft="@drawable/users_name"
+                        android:id="@+id/etlast_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ems="10" >
+                    </EditText>
+
+                </com.wrapp.floatlabelededittext.FloatLabeledEditText>
+
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+                <com.wrapp.floatlabelededittext.FloatLabeledEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    float:fletPadding="10dp">
+
+                    <EditText
+                        android:hint="Email"
+                        android:drawablePadding="18dp"
+
+                        android:background="@drawable/box"
+                        android:drawableLeft="@drawable/message"
+                        android:id="@+id/et_email"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ems="10" >
+                    </EditText>
+                </com.wrapp.floatlabelededittext.FloatLabeledEditText>
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <com.wrapp.floatlabelededittext.FloatLabeledEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    float:fletPadding="10dp">
+
+                    <EditText
+                        android:id="@+id/et_contact"
+                        android:drawablePadding="18dp"
+
+                        android:hint="Contact"
+
+                        android:background="@drawable/box"
+                        android:drawableLeft="@drawable/phone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ems="10" >
+                    </EditText>
+
+                </com.wrapp.floatlabelededittext.FloatLabeledEditText>
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+    <LinearLayout
+        android:paddingLeft="9dp"
+        android:paddingRight="9dp"
+
+
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_weight="200"
+        >
+        <Button
+            android:textAllCaps="false"
+            android:id="@+id/bEdit_owner_details"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:text="Change Details"
+            android:layout_marginTop="0dp"
+            android:textStyle="bold"
+            android:textSize="20dp"/>
+
+    </LinearLayout>
+</LinearLayout>

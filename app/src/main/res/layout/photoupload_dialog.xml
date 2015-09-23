@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:background="@color/black_semi_transparent"
+    >
+
+    <TextView android:textColor="@color/abc_primary_text_disable_only_material_dark"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Choose an Option"
+        android:id="@+id/tv_chooseoption"
+        android:layout_gravity="center_horizontal" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+
+        android:layout_height="wrap_content"><Button
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+
+        android:text="Camera"
+        android:layout_weight="1"
+        android:id="@+id/b_camera"
+        android:layout_gravity="left" />
+
+        <Button
+            android:layout_weight=".75"
+
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:text="Gallery"
+            android:id="@+id/b_gallery"
+            android:layout_gravity="right" />
+    </LinearLayout>
+</LinearLayout>

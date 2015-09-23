@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:cardview="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <android.support.v7.widget.CardView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        cardview:cardElevation="10dp"
+        cardview:cardCornerRadius="0dp"
+       >
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:orientation="vertical"
+      android:padding = "5dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#fff"
+            android:orientation="horizontal"
+            android:weightSum="100"
+            >
+            <TextView
+                android:id="@+id/tv_membername_list"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Prakhar Gupta"
+                android:textSize="25dp"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:layout_weight="30"
+                android:gravity="left" />
+            <TextView
+                android:id="@+id/tv_membershiptype_list"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Monthly"
+                android:textSize="20dp"
+                android:layout_weight="70"
+                android:gravity="right"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/tv_membershipname_list"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="#fff"
+                android:text="Badminton"
+                android:textSize="18dp"/>
+
+        </LinearLayout>
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:orientation="horizontal"
+          android:background="#fff"
+          android:weightSum="100"
+          >
+          <TextView
+              android:id="@+id/tv_startdate_list"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="01-09-2015"
+              android:textSize="20dp"
+              android:layout_weight="60"
+              android:gravity="left"/>
+
+          <TextView
+              android:id="@+id/tv_remainingdays_list"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="30 days to Go"
+              android:textSize="18dp"
+              android:layout_weight="40"
+              android:gravity="right" />
+
+      </LinearLayout>
+  </LinearLayout>
+</android.support.v7.widget.CardView>
+</LinearLayout>
