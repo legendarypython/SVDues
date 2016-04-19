@@ -28,8 +28,9 @@ public class Edit_Personal_Details extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_edit_personal_details);
         this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+        setContentView(R.layout.activity_edit_personal_details);
+
         lv = (ListView)findViewById(R.id.listView1);
         toolbar=(Toolbar)findViewById(R.id.tool_bar);
         navdrawer = (DrawerLayout)findViewById(R.id.navdrawer);
@@ -90,6 +91,7 @@ public class Edit_Personal_Details extends ActionBarActivity {
 
 
         Button confirm = (Button)findViewById(R.id.bConfirm);
+        confirm.setBackgroundResource(android.R.drawable.btn_default);
         final EditText Mobile = (EditText)findViewById(R.id.etMobile);
         final EditText Email = (EditText)findViewById(R.id.etEmail);
         final EditText Dob = (EditText)findViewById(R.id.etDob);

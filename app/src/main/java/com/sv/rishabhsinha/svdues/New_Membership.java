@@ -30,12 +30,13 @@ import java.util.Calendar;
 
 public class New_Membership extends ActionBarActivity implements View.OnClickListener {
 
-    private EditText et_startdate;
+    private EditText et_startdate,et_enddate;
     private DatePicker dpResult;
     private Button b_datepicker;
     private int year;
     private int month;
     private int day;
+    int z;
     private AutoCompleteTextView auto_membername;
     String[] all_members = {"Raja", "Prakhar", "Rishabh Sinha", "Rishabh Agarwal"};
     ToggleButton tmo, ttu, twe, tth, tfr, tsa, tsu;
@@ -59,11 +60,372 @@ public class New_Membership extends ActionBarActivity implements View.OnClickLis
         setContentView(R.layout.activity_new__membership);
         initialize();
         setCurrentDateOnView();
+        c_memebershiptype.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                String str = et_startdate.getText().toString();
+                int et_day = Integer.parseInt(str.substring(0, 2));
+                int et_month = Integer.parseInt(str.substring(3, 5));
+                int et_year = Integer.parseInt(str.substring(6, 10));
+
+                z = i;
+                switch (i) {
+                    case 0:
+
+                        break;
+                    case 1:
+                        et_year = et_year + 1;
+
+                        if (et_day < 10 && et_month < 9) {
+                            et_enddate.setText(new StringBuilder().append("0").append(et_day).append("-").append("0").append(et_month)
+                                    .append("-").append(et_year)
+                                    .append(" "));
+                        } else if (et_day > 10 && et_month < 9) {
+                            et_enddate.setText(new StringBuilder().append(et_day).append("-").append("0").append(et_month)
+                                    .append("-").append(et_year)
+                                    .append(" "));
+                        } else if (et_day < 10 && et_month > 9) {
+                            et_enddate.setText(new StringBuilder().append("0").append(et_day).append("-").append(et_month)
+                                    .append("-").append(et_year)
+                                    .append(" "));
+                        } else {
+                            et_enddate.setText(new StringBuilder().append(et_day).append("-").append(et_month)
+                                    .append("-").append(et_year)
+                                    .append(" "));
+                        }
+                        break;
+                    case 2:
+                        if (et_month <= 11) {
+                            et_month++;
+                        } else {
+                            et_month = 1;
+                            et_year++;
+                        }
+                        if (et_day < 10 && et_month < 9) {
+                            et_enddate.setText(new StringBuilder().append("0").append(et_day).append("-").append("0").append(et_month)
+                                    .append("-").append(et_year)
+                                    .append(" "));
+                        } else if (et_day > 10 && et_month < 9) {
+                            et_enddate.setText(new StringBuilder().append(et_day).append("-").append("0").append(et_month )
+                                    .append("-").append(et_year)
+                                    .append(" "));
+                        } else if (et_day < 10 && et_month > 9) {
+                            et_enddate.setText(new StringBuilder().append("0").append(et_day).append("-").append(et_month )
+                                    .append("-").append(et_year)
+                                    .append(" "));
+                        } else {
+                            et_enddate.setText(new StringBuilder().append(et_day).append("-").append(et_month)
+                                    .append("-").append(et_year)
+                                    .append(" "));
+                        }
+
+                        break;
+                    case 3:
+                        if (et_month <= 8) {
+                            et_month += 4;
+
+                        } else {
+                            et_month = et_month - 8;
+                            et_year++;
+                        }
+                        if (et_day < 10 && et_month < 9) {
+                            et_enddate.setText(new StringBuilder().append("0").append(et_day).append("-").append("0").append(et_month)
+                                    .append("-").append(et_year)
+                                    .append(" "));
+                        } else if (et_day > 10 && et_month < 9) {
+                            et_enddate.setText(new StringBuilder().append(et_day).append("-").append("0").append(et_month )
+                                    .append("-").append(et_year)
+                                    .append(" "));
+                        } else if (et_day < 10 && et_month > 9) {
+                            et_enddate.setText(new StringBuilder().append("0").append(et_day).append("-").append(et_month)
+                                    .append("-").append(et_year)
+                                    .append(" "));
+                        } else {
+                            et_enddate.setText(new StringBuilder().append(et_day).append("-").append(et_month)
+                                    .append("-").append(et_year)
+                                    .append(" "));
+                        }
+                        break;
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
         ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, all_members);
         auto_membername.setAdapter(adapter);
         auto_membername.setThreshold(1);
 
+         et_startdate.addTextChangedListener(new TextWatcher() {
+             @Override
+             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                try{ String str = et_startdate.getText().toString();
+                 int et_day = Integer.parseInt(str.substring(0, 2));
+                 int et_month = Integer.parseInt(str.substring(3, 5));
+                 int et_year = Integer.parseInt(str.substring(6, 10));
 
+                 switch (z) {
+                     case 0:
+
+                         break;
+                     case 1:
+                         et_year = et_year + 1;
+
+                         if (et_day < 10 && et_month < 9) {
+                             et_enddate.setText(new StringBuilder().append("0").append(et_day).append("-").append("0").append(et_month)
+                                     .append("-").append(et_year)
+                                     .append(" "));
+                         } else if (et_day > 10 && et_month < 9) {
+                             et_enddate.setText(new StringBuilder().append(et_day).append("-").append("0").append(et_month )
+                                     .append("-").append(et_year)
+                                     .append(" "));
+                         } else if (et_day < 10 && et_month > 9) {
+                             et_enddate.setText(new StringBuilder().append("0").append(et_day).append("-").append(et_month )
+                                     .append("-").append(et_year)
+                                     .append(" "));
+                         } else {
+                             et_enddate.setText(new StringBuilder().append(et_day).append("-").append(et_month )
+                                     .append("-").append(et_year)
+                                     .append(" "));
+                         }
+                         break;
+                     case 2:
+                         if (et_month <= 11) {
+                             et_month++;
+                         } else {
+                             et_month = 1;
+                             et_year++;
+                         }
+                         if (et_day < 10 && et_month < 9) {
+                             et_enddate.setText(new StringBuilder().append("0").append(et_day).append("-").append("0").append(et_month )
+                                     .append("-").append(et_year)
+                                     .append(" "));
+                         } else if (et_day > 10 && et_month < 9) {
+                             et_enddate.setText(new StringBuilder().append(et_day).append("-").append("0").append(et_month )
+                                     .append("-").append(et_year)
+                                     .append(" "));
+                         } else if (et_day < 10 && et_month > 9) {
+                             et_enddate.setText(new StringBuilder().append("0").append(et_day).append("-").append(et_month )
+                                     .append("-").append(et_year)
+                                     .append(" "));
+                         } else {
+                             et_enddate.setText(new StringBuilder().append(et_day).append("-").append(et_month)
+                                     .append("-").append(et_year)
+                                     .append(" "));
+                         }
+
+                         break;
+                     case 3:
+                         if (et_month <= 8) {
+                             et_month += 4;
+
+                         } else {
+                             et_month = et_month - 8;
+                             et_year++;
+                         }
+                         if (et_day < 10 && et_month < 9) {
+                             et_enddate.setText(new StringBuilder().append("0").append(et_day).append("-").append("0").append(et_month)
+                                     .append("-").append(et_year)
+                                     .append(" "));
+                         } else if (et_day > 10 && et_month < 9) {
+                             et_enddate.setText(new StringBuilder().append(et_day).append("-").append("0").append(et_month )
+                                     .append("-").append(et_year)
+                                     .append(" "));
+                         } else if (et_day < 10 && et_month > 9) {
+                             et_enddate.setText(new StringBuilder().append("0").append(et_day).append("-").append(et_month )
+                                     .append("-").append(et_year)
+                                     .append(" "));
+                         } else {
+                             et_enddate.setText(new StringBuilder().append(et_day).append("-").append(et_month)
+                                     .append("-").append(et_year)
+                                     .append(" "));
+                         }
+                         break;
+                 }}catch (Exception e){
+                    e.printStackTrace();
+                }
+             }
+
+             @Override
+             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                try{ String str = et_startdate.getText().toString();
+                 int et_day = Integer.parseInt(str.substring(0, 2));
+                 int et_month = Integer.parseInt(str.substring(3, 5));
+                 int et_year = Integer.parseInt(str.substring(6, 10));
+
+                 switch (z) {
+                     case 0:
+
+                         break;
+                     case 1:
+                         et_year = et_year + 1;
+                         if (et_day < 10 && et_month < 9) {
+                             et_enddate.setText(new StringBuilder().append("0").append(et_day).append("-").append("0").append(et_month)
+                                     .append("-").append(et_year)
+                                     .append(" "));
+                         } else if (et_day > 10 && et_month < 9) {
+                             et_enddate.setText(new StringBuilder().append(et_day).append("-").append("0").append(et_month)
+                                     .append("-").append(et_year)
+                                     .append(" "));
+                         } else if (et_day < 10 && et_month > 9) {
+                             et_enddate.setText(new StringBuilder().append("0").append(et_day).append("-").append(et_month)
+                                     .append("-").append(et_year)
+                                     .append(" "));
+                         } else {
+                             et_enddate.setText(new StringBuilder().append(et_day).append("-").append(et_month)
+                                     .append("-").append(et_year)
+                                     .append(" "));
+                         }
+
+                         break;
+                     case 2:
+                         if (et_month <= 11) {
+                             et_month++;
+                         } else {
+                             et_month = 1;
+                             et_year++;
+                         }
+                         if (et_day < 10 && et_month < 9) {
+                             et_enddate.setText(new StringBuilder().append("0").append(et_day).append("-").append("0").append(et_month )
+                                     .append("-").append(et_year)
+                                     .append(" "));
+                         } else if (et_day > 10 && et_month < 9) {
+                             et_enddate.setText(new StringBuilder().append(et_day).append("-").append("0").append(et_month )
+                                     .append("-").append(et_year)
+                                     .append(" "));
+                         } else if (et_day < 10 && et_month > 9) {
+                             et_enddate.setText(new StringBuilder().append("0").append(et_day).append("-").append(et_month)
+                                     .append("-").append(et_year)
+                                     .append(" "));
+                         } else {
+                             et_enddate.setText(new StringBuilder().append(et_day).append("-").append(et_month)
+                                     .append("-").append(et_year)
+                                     .append(" "));
+                         }
+
+                         break;
+                     case 3:
+                         if (et_month <= 8) {
+                             et_month += 4;
+
+                         } else {
+                             et_month = et_month - 8;
+                             et_year++;
+                         }
+                         if (et_day < 10 && et_month < 9) {
+                             et_enddate.setText(new StringBuilder().append("0").append(et_day).append("-").append("0").append(et_month)
+                                     .append("-").append(et_year)
+                                     .append(" "));
+                         } else if (et_day > 10 && et_month < 9) {
+                             et_enddate.setText(new StringBuilder().append(et_day).append("-").append("0").append(et_month )
+                                     .append("-").append(et_year)
+                                     .append(" "));
+                         } else if (et_day < 10 && et_month > 9) {
+                             et_enddate.setText(new StringBuilder().append("0").append(et_day).append("-").append(et_month)
+                                     .append("-").append(et_year)
+                                     .append(" "));
+                         } else {
+                             et_enddate.setText(new StringBuilder().append(et_day).append("-").append(et_month)
+                                     .append("-").append(et_year)
+                                     .append(" "));
+                         }
+                         break;
+                 }}catch (Exception e){
+                    e.printStackTrace();
+                }
+             }
+
+             @Override
+             public void afterTextChanged(Editable editable) {
+            try{    String str = et_startdate.getText().toString();
+                 int et_day = Integer.parseInt(str.substring(0, 2));
+                 int et_month = Integer.parseInt(str.substring(3, 5));
+                 int et_year = Integer.parseInt(str.substring(6, 10));
+
+                 switch (z) {
+                     case 0:
+
+                         break;
+                     case 1:
+                         et_year = et_year + 1;
+
+                         if (et_day < 10 && et_month < 9) {
+                             et_enddate.setText(new StringBuilder().append("0").append(et_day).append("-").append("0").append(et_month)
+                                     .append("-").append(et_year)
+                                     .append(" "));
+                         } else if (et_day > 10 && et_month < 9) {
+                             et_enddate.setText(new StringBuilder().append(et_day).append("-").append("0").append(et_month)
+                                     .append("-").append(et_year)
+                                     .append(" "));
+                         } else if (et_day < 10 && et_month > 9) {
+                             et_enddate.setText(new StringBuilder().append("0").append(et_day).append("-").append(et_month)
+                                     .append("-").append(et_year)
+                                     .append(" "));
+                         } else {
+                             et_enddate.setText(new StringBuilder().append(et_day).append("-").append(et_month)
+                                     .append("-").append(et_year)
+                                     .append(" "));
+                         }
+                         break;
+                     case 2:
+                         if (et_month <= 11) {
+                             et_month++;
+                         } else {
+                             et_month = 1;
+                             et_year++;
+                         }
+                         if (et_day < 10 && et_month < 9) {
+                             et_enddate.setText(new StringBuilder().append("0").append(et_day).append("-").append("0").append(et_month)
+                                     .append("-").append(et_year)
+                                     .append(" "));
+                         } else if (et_day > 10 && et_month < 9) {
+                             et_enddate.setText(new StringBuilder().append(et_day).append("-").append("0").append(et_month)
+                                     .append("-").append(et_year)
+                                     .append(" "));
+                         } else if (et_day < 10 && et_month > 9) {
+                             et_enddate.setText(new StringBuilder().append("0").append(et_day).append("-").append(et_month)
+                                     .append("-").append(et_year)
+                                     .append(" "));
+                         } else {
+                             et_enddate.setText(new StringBuilder().append(et_day).append("-").append(et_month)
+                                     .append("-").append(et_year)
+                                     .append(" "));
+                         }
+
+                         break;
+                     case 3:
+                         if (et_month <= 8) {
+                             et_month += 4;
+
+                         } else {
+                             et_month = et_month - 8;
+                             et_year++;
+                         }
+                         if (et_day < 10 && et_month < 9) {
+                             et_enddate.setText(new StringBuilder().append("0").append(et_day).append("-").append("0").append(et_month)
+                                     .append("-").append(et_year)
+                                     .append(" "));
+                         } else if (et_day > 10 && et_month < 9) {
+                             et_enddate.setText(new StringBuilder().append(et_day).append("-").append("0").append(et_month)
+                                     .append("-").append(et_year)
+                                     .append(" "));
+                         } else if (et_day < 10 && et_month > 9) {
+                             et_enddate.setText(new StringBuilder().append("0").append(et_day).append("-").append(et_month)
+                                     .append("-").append(et_year)
+                                     .append(" "));
+                         } else {
+                             et_enddate.setText(new StringBuilder().append(et_day).append("-").append(et_month)
+                                     .append("-").append(et_year)
+                                     .append(" "));
+                         }
+                         break;
+                 }}catch (Exception e){
+                e.printStackTrace();
+            }
+             }
+         });
 
         extra_charges.addTextChangedListener(new TextWatcher() {
             @Override
@@ -133,7 +495,8 @@ public class New_Membership extends ActionBarActivity implements View.OnClickLis
 
                         break;
                     case 5:
-
+                        Intent g1 = new Intent(New_Membership.this, User_Change_Password.class);
+                        startActivity(g1);
                         break;
                     case 6:
                         Intent g = new Intent(New_Membership.this, LoginActivity.class);
@@ -161,11 +524,13 @@ public class New_Membership extends ActionBarActivity implements View.OnClickLis
         c_activity = (Spinner) findViewById(R.id.sp_choose_activity);
         c_memebershiptype = (Spinner) findViewById(R.id.sp_choose_membership_type);
         et_startdate = (EditText) findViewById(R.id.et_newmembership_startdate);
+        et_enddate  =(EditText)findViewById(R.id.et_newmembership_enddate);
         extra_charges = (EditText) findViewById(R.id.et_newmembership_extracharges);
         b_datepicker = (Button) findViewById(R.id.bt_newmembership_datepicker);
         discount = (EditText) findViewById(R.id.et_newmembership_discount);
         total_charges = (EditText) findViewById(R.id.et_newmembership_totalcharge);
         confirm_membership = (Button) findViewById(R.id.b_newmembership_confirmmembership);
+        confirm_membership.setBackgroundResource(android.R.drawable.btn_default);
         tmo = (ToggleButton) findViewById(R.id.tb_newmembership_mon);
         ttu = (ToggleButton) findViewById(R.id.tb_newmembership_tue);
         twe = (ToggleButton) findViewById(R.id.tb_newmembership_wed);
@@ -271,9 +636,25 @@ public class New_Membership extends ActionBarActivity implements View.OnClickLis
         day = c.get(Calendar.DAY_OF_MONTH);
 
         // set current date into textview
-        et_startdate.setText(new StringBuilder()
-                .append(day).append("-").append(month + 1).append("-")
-                .append(year).append(" "));
+
+        if (day < 10 && month < 9) {
+            et_startdate.setText(new StringBuilder().append("0").append(day).append("-").append("0").append(month + 1)
+                    .append("-").append(year)
+                    .append(" "));
+        } else if (day > 10 && month < 9) {
+            et_startdate.setText(new StringBuilder().append(day).append("-").append("0").append(month + 1)
+                    .append("-").append(year)
+                    .append(" "));
+        } else if (day < 10 && month > 9) {
+            et_startdate.setText(new StringBuilder().append("0").append(day).append("-").append(month + 1)
+                    .append("-").append(year)
+                    .append(" "));
+        } else {
+            et_startdate.setText(new StringBuilder().append(day).append("-").append(month + 1)
+                    .append("-").append(year)
+                    .append(" "));
+        }
+
         // Month is 0 based, just add 1
 
         // set current date into datepicker
@@ -349,9 +730,23 @@ public void settotal(){
             day = selectedDay;
 
             // set selected date into textview
-            et_startdate.setText(new StringBuilder().append(day).append("-").append(month + 1)
-                    .append("-").append(year)
-                    .append(" "));
+            if (day < 10 && month < 9) {
+                et_startdate.setText(new StringBuilder().append("0").append(day).append("-").append("0").append(month + 1)
+                        .append("-").append(year)
+                        .append(" "));
+            } else if (day > 10 && month < 9) {
+                et_startdate.setText(new StringBuilder().append(day).append("-").append("0").append(month + 1)
+                        .append("-").append(year)
+                        .append(" "));
+            } else if (day < 10 && month > 9) {
+                et_startdate.setText(new StringBuilder().append("0").append(day).append("-").append(month + 1)
+                        .append("-").append(year)
+                        .append(" "));
+            } else {
+                et_startdate.setText(new StringBuilder().append(day).append("-").append(month + 1)
+                        .append("-").append(year)
+                        .append(" "));
+            }
 
         }
     };

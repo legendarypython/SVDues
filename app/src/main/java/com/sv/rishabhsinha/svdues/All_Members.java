@@ -9,6 +9,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -41,9 +42,10 @@ public class All_Members extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.members_list);
-
+        this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
         lv = (ListView)findViewById(R.id.listView1);
         toolbar = (Toolbar) findViewById(R.id.tool_bar);
+
         navdrawer = (DrawerLayout) findViewById(R.id.navdrawer);
         abdt = new ActionBarDrawerToggle(All_Members.this, navdrawer, 0, 0);
         ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, navigation_drawer);
@@ -55,34 +57,44 @@ public class All_Members extends ActionBarActivity {
                     case 0:
                         Intent a = new Intent(All_Members.this, HomePage.class);
                         startActivity(a);
+                        navdrawer.closeDrawer(lv);
 
                         break;
                     case 1:
                         Intent b = new Intent(All_Members.this, Add_Member.class);
                         startActivity(b);
+                        navdrawer.closeDrawer(lv);
 
                         break;
                     case 2:
                         Intent c = new Intent(All_Members.this, New_Membership.class);
                         startActivity(c);
+                        navdrawer.closeDrawer(lv);
 
                         break;
                     case 3:
                         Intent d = new Intent(All_Members.this, All_Members.class);
                         startActivity(d);
+                        navdrawer.closeDrawer(lv);
 
                         break;
                     case 4:
                         Intent e = new Intent(All_Members.this, User_info.class);
                         startActivity(e);
+                        navdrawer.closeDrawer(lv);
 
                         break;
                     case 5:
+                        Intent g1 = new Intent(All_Members.this, User_Change_Password.class);
+                        startActivity(g1);
+                        navdrawer.closeDrawer(lv);
 
                         break;
                     case 6:
                         Intent g = new Intent(All_Members.this, LoginActivity.class);
                         startActivity(g);
+                        navdrawer.closeDrawer(lv);
+
                         finish();
 
                         break;

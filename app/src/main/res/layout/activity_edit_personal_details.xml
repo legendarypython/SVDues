@@ -23,6 +23,7 @@
                 ></include>
 
             <LinearLayout
+                android:layout_weight="1"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:orientation="vertical"
@@ -55,16 +56,21 @@
                     android:layout_marginTop="50dp"
                     android:id="@+id/etDob" />
 
-                <Button
+            </LinearLayout>
+        <LinearLayout
+ android:layout_gravity="bottom"
+            android:gravity="bottom"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+            <Button
+                    android:layout_gravity="bottom"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Confirm"
                     android:textAllCaps="false"
-                    android:layout_marginTop="40dp"
                     android:id="@+id/bConfirm" />
 
-            </LinearLayout>
-
+        </LinearLayout>
         </LinearLayout>
 
     </FrameLayout>

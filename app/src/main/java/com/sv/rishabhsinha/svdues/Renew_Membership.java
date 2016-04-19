@@ -162,7 +162,8 @@ public class Renew_Membership extends ActionBarActivity implements View.OnClickL
 
                         break;
                     case 5:
-
+                        Intent g1 = new Intent(Renew_Membership.this, User_Change_Password.class);
+                        startActivity(g1);
                         break;
                     case 6:
                         Intent g = new Intent(Renew_Membership.this, LoginActivity.class);
@@ -302,11 +303,25 @@ public class Renew_Membership extends ActionBarActivity implements View.OnClickL
         day = c.get(Calendar.DAY_OF_MONTH);
 
         // set current date into textview
-        et_startdate.setText(new StringBuilder()
-                .append(day).append("-").append(month + 1).append("-")
-                .append(year).append(" "));
-        // Month is 0 based, just add 1
 
+        // Month is 0 based, just add 1
+        if (day < 10 && month < 9) {
+            et_startdate.setText(new StringBuilder().append("0").append(day).append("-").append("0").append(month + 1)
+                    .append("-").append(year)
+                    .append(" "));
+        } else if (day > 10 && month < 9) {
+            et_startdate.setText(new StringBuilder().append(day).append("-").append("0").append(month + 1)
+                    .append("-").append(year)
+                    .append(" "));
+        } else if (day < 10 && month > 9) {
+            et_startdate.setText(new StringBuilder().append("0").append(day).append("-").append(month + 1)
+                    .append("-").append(year)
+                    .append(" "));
+        } else {
+            et_startdate.setText(new StringBuilder().append(day).append("-").append(month + 1)
+                    .append("-").append(year)
+                    .append(" "));
+        }
         // set current date into datepicker
 
     }
@@ -334,10 +349,23 @@ public class Renew_Membership extends ActionBarActivity implements View.OnClickL
             day = selectedDay;
 
             // set selected date into textview
-            et_startdate.setText(new StringBuilder().append(day).append("-").append(month + 1)
-                    .append("-").append(year)
-                    .append(" "));
-
+            if (day < 10 && month < 9) {
+                et_startdate.setText(new StringBuilder().append("0").append(day).append("-").append("0").append(month + 1)
+                        .append("-").append(year)
+                        .append(" "));
+            } else if (day > 10 && month < 9) {
+                et_startdate.setText(new StringBuilder().append(day).append("-").append("0").append(month + 1)
+                        .append("-").append(year)
+                        .append(" "));
+            } else if (day < 10 && month > 9) {
+                et_startdate.setText(new StringBuilder().append("0").append(day).append("-").append(month + 1)
+                        .append("-").append(year)
+                        .append(" "));
+            } else {
+                et_startdate.setText(new StringBuilder().append(day).append("-").append(month + 1)
+                        .append("-").append(year)
+                        .append(" "));
+            }
         }
     };
 

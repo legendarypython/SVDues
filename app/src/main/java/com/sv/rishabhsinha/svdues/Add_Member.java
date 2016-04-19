@@ -3,11 +3,13 @@ package com.sv.rishabhsinha.svdues;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
@@ -21,12 +23,14 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.wrapp.floatlabelededittext.FloatLabeledEditText;
@@ -38,6 +42,7 @@ import java.util.Calendar;
 public class Add_Member extends ActionBarActivity implements  View.OnClickListener {
 
     ListView lv;
+    TextView require1,require2;
     FloatLabeledEditText parents_float, address_float, school_float, height_float, weight_float;
     private EditText newmember_name, newmember_email, newmember_mobile, newmember_dob, newmember_parentsname, newmember_address,
             newmember_school, newmember_height, newmember_weight, newmember_registrationfee;
@@ -59,10 +64,70 @@ public class Add_Member extends ActionBarActivity implements  View.OnClickListen
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add__member);
-
+        this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
         initialize();
+newmember_name.addTextChangedListener(new TextWatcher() {
+    @Override
+    public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+          if(newmember_name.getText().toString().contentEquals("")){
+              require1.setVisibility(View.VISIBLE);
+          }
+         else{
+              require1.setVisibility(View.GONE);
+          }
+    }
 
+    @Override
+    public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+        if(newmember_name.getText().toString().contentEquals("")){
+            require1.setVisibility(View.VISIBLE);
+        }
+        else{
+            require1.setVisibility(View.GONE);
+        }
+    }
 
+    @Override
+    public void afterTextChanged(Editable editable) {
+        if(newmember_name.getText().toString().contentEquals("")){
+            require1.setVisibility(View.VISIBLE);
+        }
+        else{
+            require1.setVisibility(View.GONE);
+        }
+    }
+});
+newmember_mobile.addTextChangedListener(new TextWatcher() {
+    @Override
+    public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+        if(newmember_mobile.getText().toString().contentEquals("")){
+            require2.setVisibility(View.VISIBLE);
+        }
+        else{
+            require2.setVisibility(View.GONE);
+        }
+    }
+
+    @Override
+    public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+        if(newmember_mobile.getText().toString().contentEquals("")){
+            require2.setVisibility(View.VISIBLE);
+        }
+        else{
+            require2.setVisibility(View.GONE);
+        }
+    }
+
+    @Override
+    public void afterTextChanged(Editable editable) {
+        if(newmember_mobile.getText().toString().contentEquals("")){
+            require2.setVisibility(View.VISIBLE);
+        }
+        else{
+            require2.setVisibility(View.GONE);
+        }
+    }
+});
         newmember_dob.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -182,34 +247,43 @@ public class Add_Member extends ActionBarActivity implements  View.OnClickListen
                     case 0:
                         Intent a = new Intent(Add_Member.this, HomePage.class);
                         startActivity(a);
+                        navdrawer.closeDrawer(lv);
 
                         break;
                     case 1:
                         Intent b = new Intent(Add_Member.this, Add_Member.class);
                         startActivity(b);
-
+                        navdrawer.closeDrawer(lv);
                         break;
                     case 2:
                         Intent c = new Intent(Add_Member.this, New_Membership.class);
                         startActivity(c);
 
+                        navdrawer.closeDrawer(lv);
+
                         break;
                     case 3:
                         Intent d = new Intent(Add_Member.this, All_Members.class);
                         startActivity(d);
+                        navdrawer.closeDrawer(lv);
 
                         break;
                     case 4:
                         Intent e = new Intent(Add_Member.this, User_info.class);
                         startActivity(e);
+                        navdrawer.closeDrawer(lv);
 
                         break;
                     case 5:
+                        Intent g1 = new Intent(Add_Member.this, User_Change_Password.class);
+                        startActivity(g1);
+                        navdrawer.closeDrawer(lv);
 
                         break;
                     case 6:
                         Intent g = new Intent(Add_Member.this, LoginActivity.class);
                         startActivity(g);
+                        navdrawer.closeDrawer(lv);
                         finish();
 
                         break;
@@ -230,6 +304,8 @@ public class Add_Member extends ActionBarActivity implements  View.OnClickListen
     private void initialize() {
         newmember_dob = (EditText) findViewById(R.id.et_newmemberdob);
         newmember_name = (EditText) findViewById(R.id.etNew_membername);
+        require1 = (TextView)findViewById(R.id.tv_require1);
+        require2 = (TextView)findViewById(R.id.tv_require2);
         newmember_email = (EditText) findViewById(R.id.etNewmember_email);
         newmember_mobile = (EditText) findViewById(R.id.etNew_membermobile);
         newmember_parentsname = (EditText) findViewById(R.id.et_newmember_parentsname);
@@ -255,6 +331,11 @@ public class Add_Member extends ActionBarActivity implements  View.OnClickListen
         newmember_confirmupload.setOnClickListener(this);
         newmember_rejectupload.setOnClickListener(this);
         newmember_confirmmember.setOnClickListener(this);
+        newmember_photoupload.setBackgroundResource(android.R.drawable.btn_default);
+        newmember_documentupload.setBackgroundResource(android.R.drawable.btn_default);
+        newmember_confirmupload.setBackgroundResource(android.R.drawable.btn_default);
+        newmember_rejectupload.setBackgroundResource(android.R.drawable.btn_default);
+        newmember_confirmmember.setBackgroundResource(android.R.drawable.btn_default);
 
     }
 
@@ -368,14 +449,14 @@ public class Add_Member extends ActionBarActivity implements  View.OnClickListen
 
                 break;
             case R.id.b_newmember_rejectupload:
-                newmember_photoupload.setBackgroundResource(0);
+                newmember_photoupload.setBackgroundResource(android.R.drawable.btn_default);
                 newmember_photoupload.setText("Photo Upload");
-                newmember_documentupload.setBackgroundResource(0);
+                newmember_documentupload.setBackgroundResource(android.R.drawable.btn_default);
                 newmember_documentupload.setText("Document Upload");
 
                 newmember_documentupload.setWidth(ViewGroup.LayoutParams.FILL_PARENT);
-                newmember_photoupload.setBackgroundColor(Color.GRAY);
-                newmember_documentupload.setBackgroundColor(Color.GRAY);
+           //   newmember_photoupload.setBackgroundColor(Color.parseColor("#"));
+           //    newmember_documentupload.setBackgroundColor(Color.GRAY);
                 newmember_documentupload.setHeight(ViewGroup.LayoutParams.WRAP_CONTENT);
                 newmember_photoupload.setWidth(ViewGroup.LayoutParams.FILL_PARENT);
                 newmember_photoupload.setHeight(ViewGroup.LayoutParams.WRAP_CONTENT);
@@ -384,15 +465,22 @@ public class Add_Member extends ActionBarActivity implements  View.OnClickListen
                 break;
             case R.id.b_newmember_confirmmember:
                 if (!((newmember_name.getText().toString()).equals("")) && (!newmember_mobile.getText().toString().equals(""))) {
-
+                    newmember_mobile.setBackgroundResource(R.drawable.box);
+                    newmember_name.setBackgroundResource(R.drawable.box);
                     Intent new_membershipintent = new Intent(Add_Member.this, New_Membership.class);
                     startActivity(new_membershipintent);
                 } else {
                     if ((!newmember_name.getText().toString().equals("")) && (newmember_mobile.getText().toString().equals(""))) {
+                        newmember_mobile.setBackgroundResource(R.drawable.red_box);
+                        newmember_name.setBackgroundResource(R.drawable.box);
                         Toast.makeText(getBaseContext(), "Please fill Contact field", Toast.LENGTH_LONG).show();
                     } else if ((newmember_name.getText().toString().equals("")) && (!newmember_mobile.getText().toString().equals(""))) {
+                        newmember_mobile.setBackgroundResource(R.drawable.box);
+                        newmember_name.setBackgroundResource(R.drawable.red_box);
                         Toast.makeText(getBaseContext(), "Please fill Member Name ", Toast.LENGTH_LONG).show();
                     } else {
+                        newmember_mobile.setBackgroundResource(R.drawable.red_box);
+                        newmember_name.setBackgroundResource(R.drawable.red_box);
                         Toast.makeText(getBaseContext(), "Please fill Member Name & Contact  ", Toast.LENGTH_LONG).show();
                     }
                 }

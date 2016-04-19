@@ -72,6 +72,7 @@ public class MemberDetails extends ActionBarActivity implements View.OnClickList
 
         setContentView(R.layout.activity_member_details);
         edit = (Button)findViewById(R.id.bEditDetails);
+        edit.setBackgroundResource(android.R.drawable.btn_default);
         mobile = (TextView)findViewById(R.id.tvMob);
         email = (TextView)findViewById(R.id.tvEmail);
         dob = (TextView)findViewById(R.id.tvDob);

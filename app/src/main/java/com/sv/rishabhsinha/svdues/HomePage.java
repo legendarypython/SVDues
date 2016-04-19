@@ -56,7 +56,7 @@ public class HomePage extends ActionBarActivity {
                     case 1:
                         Intent b = new Intent(HomePage.this, Add_Member.class);
                         startActivity(b);
-
+                     finish();
                         break;
                     case 2:
                         Intent c = new Intent(HomePage.this, New_Membership.class);
@@ -74,6 +74,8 @@ public class HomePage extends ActionBarActivity {
 
                         break;
                     case 5:
+                        Intent g1 = new Intent(HomePage.this, User_Change_Password.class);
+                        startActivity(g1);
 
                         break;
                     case 6:
@@ -158,7 +160,7 @@ public class HomePage extends ActionBarActivity {
         UpcomingRenewals.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(HomePage.this,Add_Member.class);
+                Intent i=new Intent(HomePage.this,Upcoming_renewal.class);
                 startActivity(i);
             }
         });
@@ -183,7 +185,11 @@ public class HomePage extends ActionBarActivity {
         toolbar=(Toolbar)findViewById(R.id.tool_bar);
         navdrawer = (DrawerLayout)findViewById(R.id.navdrawer);
         RenewMemberships=(Button)findViewById(R.id.bRenewMembership);
-
+        RenewMemberships.setBackgroundResource(android.R.drawable.btn_default);
+       // NewMember.setBackgroundResource(android.R.drawable.btn_default);
+    //    NewMembership.setBackgroundResource(android.R.drawable.btn_default);
+    //    UpcomingRenewals.setBackgroundResource(android.R.drawable.btn_default);
+   //     AllMembership.setBackgroundResource(android.R.drawable.btn_default);
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

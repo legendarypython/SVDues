@@ -98,6 +98,14 @@
             android:label=""
             >
         </activity>
+        <activity
+            android:name=".Upcoming_renewal"
+            android:label=""
+            android:parentActivityName=".HomePage" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.sv.rishabhsinha.svdues.HomePage" />
+        </activity>
     </application>
 
 </manifest>

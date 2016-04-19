@@ -19,15 +19,7 @@ public class LoginActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-
-
-
-
-
-
-
-
-        this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+    this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
         Button Login = (Button) findViewById(R.id.bLogin);
         TextView Forgot = (TextView)findViewById(R.id.tvForgot);
         Login.setOnClickListener(new View.OnClickListener() {

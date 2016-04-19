@@ -12,7 +12,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:weightSum="200"
+            android:weightSum="1"
             android:orientation="vertical"
             >
 
@@ -21,11 +21,10 @@
                 layout="@layout/tool_bar"
                 ></include>
             <ScrollView android:layout_width="match_parent"
+                android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
                 <LinearLayout
-                    android:paddingRight="18dp"
-                    android:paddingLeft="18dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical" >
@@ -35,12 +34,16 @@
                     <com.wrapp.floatlabelededittext.FloatLabeledEditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+
+                        android:layout_marginLeft="18dp"
+                        android:layout_marginRight="18dp"
                         float:fletPadding="5dp">
                         <AutoCompleteTextView
                             android:id="@+id/auto_renew_membername"
                             android:layout_width="match_parent"
                             android:background="@drawable/box"
                             android:drawSelectorOnTop="true"
+                            android:singleLine="true"
                             android:hint="Member Name"
                             android:drawableLeft="@drawable/users_name"
                             android:drawablePadding="18dp"
@@ -50,6 +53,8 @@
                     </com.wrapp.floatlabelededittext.FloatLabeledEditText>
                     <Spinner
 
+                        android:layout_marginLeft="18dp"
+                        android:layout_marginRight="18dp"
                         android:drawSelectorOnTop="true"
                         android:entries="@array/choose_activity"
                         android:layout_marginTop="10dp"
@@ -67,6 +72,9 @@
                         android:layout_height="50dp"
                         android:background="#dfdfdf"
                         android:gravity="center"
+
+                        android:layout_marginLeft="18dp"
+                        android:layout_marginRight="18dp"
                         android:layout_marginBottom="10dp"
                         />
 
@@ -75,6 +83,9 @@
 
 
                     <LinearLayout
+
+                        android:layout_marginLeft="18dp"
+                        android:layout_marginRight="18dp"
                         android:layout_width="fill_parent"
                         android:layout_height="fill_parent"
                         android:orientation="horizontal"
@@ -91,7 +102,9 @@
                                 android:id="@+id/et_renewmembership_startdate"
                                 android:layout_width="fill_parent"
                                 android:layout_height="wrap_content"
-                                android:hint="Date of Birth"
+                                android:hint="Start Date"
+                                android:singleLine="true"
+                                android:maxLength="10"
 
                                 />
                         </com.wrapp.floatlabelededittext.FloatLabeledEditText>
@@ -104,13 +117,43 @@
                             android:textAllCaps="false"
                             android:layout_marginTop="27dp"
                             android:layout_marginBottom="5dp"/>
-                    </LinearLayout>
+                    </LinearLayout>  <LinearLayout
+                    android:layout_width="fill_parent"
+
+                    android:layout_marginLeft="18dp"
+                    android:layout_marginRight="18dp"
+                    android:layout_height="fill_parent"
+                    android:orientation="horizontal"
+                    android:weightSum="1">
+                    <com.wrapp.floatlabelededittext.FloatLabeledEditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        float:fletPaddingBottom="5dp"
+                        android:layout_weight="0.12">
+                        <EditText
+                            android:background="@drawable/box"
+                            android:drawablePadding="18dp"
+                            android:drawableLeft="@drawable/calendars"
+                            android:id="@+id/et_renewmembership_enddate"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="End Date"
+                            android:inputType="none"
+                            android:singleLine="true"
+                            android:maxLength="10"
+
+                            />
+                    </com.wrapp.floatlabelededittext.FloatLabeledEditText>
+
+                </LinearLayout>
 
 
                     <LinearLayout
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
 
+                        android:layout_marginLeft="18dp"
+                        android:layout_marginRight="18dp"
                         android:orientation="horizontal">
 
                         <com.wrapp.floatlabelededittext.FloatLabeledEditText
@@ -123,7 +166,7 @@
                             <EditText
                                 android:id="@+id/et_renewmembership_extracharges"
                                 android:layout_width="wrap_content"
-
+android:singleLine="true"
                                 android:drawableLeft="@drawable/wallet"
                                 android:background="@drawable/box"
                                 android:drawablePadding="13dp"
@@ -149,6 +192,7 @@
                                 android:hint="Discount"
                                 android:drawablePadding="18dp"
                                 android:background="@drawable/box"
+                                android:singleLine="true"
                                 android:drawableLeft="@drawable/wallet"
                                 android:layout_height="wrap_content"
                                 android:ems="10"
@@ -160,6 +204,9 @@
 
                     <com.wrapp.floatlabelededittext.FloatLabeledEditText
                         android:layout_width="wrap_content"
+
+                        android:layout_marginLeft="18dp"
+                        android:layout_marginRight="18dp"
                         android:layout_height="wrap_content"
                         float:fletPadding="5dp">
 
@@ -168,6 +215,7 @@
                             android:layout_width="fill_parent"
                             android:hint="Total Charge"
                             android:background="@drawable/box"
+                            android:singleLine="true"
                             android:drawableLeft="@drawable/wallet"
                             android:drawablePadding="18dp"
                             android:layout_height="wrap_content"
@@ -183,6 +231,9 @@
 
 
                     <LinearLayout
+
+                        android:layout_marginLeft="18dp"
+                        android:layout_marginRight="18dp"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
@@ -287,15 +338,16 @@
                     </LinearLayout>
                 </LinearLayout>
             </ScrollView>
-            <LinearLayout
-                android:paddingLeft="8dp"
-                android:paddingRight="8dp"
 
+              <LinearLayout
+
+android:layout_gravity="bottom"
+                  android:gravity="bottom"
+                  android:layout_weight="1"
 
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_weight="200"
                 >
                 <Button
                     android:id="@+id/b_renewmembership_membership"
@@ -306,6 +358,7 @@
                     android:text="Renew Membership" />
 
             </LinearLayout>
+
         </LinearLayout>
     </FrameLayout>
 

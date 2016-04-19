@@ -34,8 +34,12 @@ public class User_Change_Password extends ActionBarActivity implements View.OnCl
         super.onCreate(savedInstanceState);
         setContentView(R.layout.user_changepassword);
         initialize();
-        abdt = new ActionBarDrawerToggle(User_Change_Password.this,navdrawer,0,0);
-        ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,navigation_drawer);
+
+        lv = (ListView) findViewById(R.id.listView1);
+        toolbar = (Toolbar) findViewById(R.id.tool_bar);
+        navdrawer = (DrawerLayout) findViewById(R.id.navdrawer);
+        abdt = new ActionBarDrawerToggle(User_Change_Password.this, navdrawer, 0, 0);
+        ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, navigation_drawer);
         lv.setAdapter(adapter1);
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -67,7 +71,8 @@ public class User_Change_Password extends ActionBarActivity implements View.OnCl
 
                         break;
                     case 5:
-
+                        Intent g1 = new Intent(User_Change_Password.this, User_Change_Password.class);
+                        startActivity(g1);
                         break;
                     case 6:
                         Intent g = new Intent(User_Change_Password.this, LoginActivity.class);
@@ -85,8 +90,7 @@ public class User_Change_Password extends ActionBarActivity implements View.OnCl
         setSupportActionBar(toolbar);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeButtonEnabled(true);
-    }
+        getSupportActionBar().setHomeButtonEnabled(true);}
 
     private void initialize() {
         old_pass=(EditText)findViewById(R.id.etoldpass);
